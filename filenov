@@ -1,0 +1,81 @@
+Lunixs Notes
+--------------
+User Name : root 
+password : root123
+
+-----------------
+get Server id : hostname -I (Capital I)
+
+if Logins with git bash or commed prompt : ssh root@192.168.20.128
+
+IP Address : hostname -I
+================
+OPEN LUNIX FOLLOWED THINGS:
+-----------------------------------
+
+Lunix Home Directory : cd /
+Lunix list : ls
+============
+Lunix free Directory : cd /opt/ (opt, tmp free directory)
+Create file : touch file /CAT, VI (Total 18 Ways)
+See Total list : ll, ls -l
+
+If Go to directary : cd dir1/
+Present where you are : pwd (Present working Directory)
+
+If Go to More directary : cd dir1/dir2/dir3/
+One Step back : cd ..
+More Steps : cd ../../..
+Recent to Old : ls -lt
+Old to recent : ls -ltr (list of time recorcively)
+Create Hiden File : .file (".file name")
+See Hidden file : ls -a OR ls -la
+
+Create file : touch file
+Delete file : rm file (rm "filename")
+Create directory : mkdir dir1
+Delete directory : rmdir dir (rmdir "file name")
+
+Perminente delete directory : rm -rf dir
+Perminente delete file: rm -rf file
+
+Create Nested Directory : mkdir -p dir1/dir2/dir3/dir4 (dir1 into create dir2 as well as)
+=================
+CAT
+-----------------------
+Create cat file : cate > file 1 hello all 
+Save cate : ctrl+d
+
+view data : cat file
+Add New Data cat : cat >> file 1  hello all  all hello (Both shown)
+Replace Data : cat > file 1
+==============
+Go to file : vi file
+Add any data : esc i
+save file : esc:w!
+Close : :q!
+========
+Coomand line mode : esc
+
+-----------
+dd - delete a line
+ndd - no.of lines delete
+yy - copy a line
+p - paste
+nyy - no.of lines copy
+p - paste
+dw - delete a word
+ndw - delete no.of words
+x - char delete
+$ - end of the line
+^ - starting of the line
+o - create a new line below the couser
+O - above the couser
+
+G - ground
+H - head
+a - append
+
+
+
+
