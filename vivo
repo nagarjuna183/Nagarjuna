@@ -1,1 +1,25 @@
-ughut
+pipeline {
+    agent any
+
+    stages {
+        stage('Build-stage') {
+            steps {
+                echo 'Hello build'
+                build quietPeriod: 5, job: 'job1'
+            }
+        }
+          stage('Qa_stage') {
+            steps {
+                echo 'Hello Qa'
+                build quietPeriod: 5, job: 'test1'
+            }
+        }
+          stage('production_stage') {
+            steps {
+                echo 'Hello production'
+                build quietPeriod: 5, job: 'test2'
+            }
+        }
+    }
+}
+
