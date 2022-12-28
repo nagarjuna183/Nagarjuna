@@ -1,0 +1,43 @@
+git branch -see all branches in local repogitory (its shows * mark)
+git branch release1 - create branchname
+git chechout -b release1 (we can create branch and checkout to release1 both at a lime)
+git branch checkout release1 -change branch
+git merge main (we can copy all file from main branch)
+git branch -d release1 (to delete branch in loacal machine) (we can delete with in the branch)
+git branch origin -d release1 (to delete hub branch)
+if your create any file,(workspace and staging) than checkout other branch it will automatically move to other branch
+you in one branch change some data in physical and chechout other branch you see data it empty than you use merge than only copy data
+git push origin release1 (push to local to hub) or git push path(https://github.nagarjuana183) releas2
+git push (it push data to hub branch is where your that branch only because it default .get file config change )
+git add test/file (git add test directory from file)
+git merge conflicts:
+git merge --abort (to avoid merge conflict)
+to remove ===> data 
+current branch -HEAD
+other branch -branch name (release1)
+after removing git add . and commit file
+git cherry-pick cid (only particular file copy)
+git merge release1 (copy total one branch to other branch)
+git branch (total how many branches in loacal)
+git branch -r (hub branches)
+git branch -a (total all branches)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
