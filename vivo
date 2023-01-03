@@ -11,13 +11,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Hello Test-stage'
-                build quietPeriod: 5, job: 'tomcat-aws'
+                build quietPeriod: 5, job: 'project-tomcat-aws'
             }
         }
         stage('Prod') {
             steps {
                 echo 'Hello Prod-stage'
-                build quietPeriod: 5, job: 'Tomcat-docker'
+                build quietPeriod: 5, job: 'project-Tomcat-docker'
             }
         }
     }
