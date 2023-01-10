@@ -1,0 +1,46 @@
+knife bootstrap 192.168.20.132 -U root -P -root123 -N Node-1 (connect to client node ) use workstion this comand
+chef genarate cookbook cook1 (create cookook) (@use any command on linux or windows only chef-repo path after cookbooks)
+ /opt=>chef-repo=>cookbooks=>cookbook1=>recipies=>vi default.rb (rb means rubi file)
+knife cookbook upload cookbook1 (upload to manage .chef)
+chef-client (node use for getting info from manage.chef
+
+crontap format:
+min, hrs, date, month, day of the week
+* * * * *
+follwing steps:-
+----------------
+create vi chef.sh(then give)
+chef-repo
+chmood 777 chef.sh or chmod +x chef.sh
+crontap -e (give below format)
+* * * * * /opt/chef.sh
+
+knife node run_list add Node-1 "recipe[cookbook]1" (adding to node in manage chef)
+knife node run_list remove Node-1 "recipe[cookbook]1" (remove to node in manage chef)
+knife node run_list add Node-1 "recipe[cookbook1]", "recipe[cookbook1]" (multi adding to node in manage chef)
+knife data bags create users (create new data bag in managa chef)
+knife data bags from file users user1.json user2.json (uplaod workstation to chef manager data bags users)
+knife data bags from file groups group1.json group2.json uplaod workstation to chef manager data bags groups)
+
+userdel -r user1 (delete user)
+vi metadata.rb (we can change version of cookbook)
+default.rb we can include last groups
+
+User strange:-
+---------------
+we can create json format
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
