@@ -21,6 +21,7 @@ git merge release1 (copy total one branch to other branch)
 git branch (total how many branches in loacal)
 git branch -r (hub branches)
 git branch -a (total all branches)
+(if merge git hub to git hub merge use for pull request in git hub)
 
 
 
