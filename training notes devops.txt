@@ -1,0 +1,142 @@
+https://github.com/polarapu/batch86.git
+
+if reject:
+
+git pull --rebase
+
+git push
+==============
+Lunixs Notes
+--------------
+User Name : root 
+password : root123
+----------------------------
+AWS Logins
+----------------------
+koduri.nag98@gmail.com
+nagarjunA@1
+------------------------
+==================================
+GIT:-
+==================================
+
+git reset head file (index to work)
+git reset --soft cid(local to index)
+git reset --mixed cid (local to work)
+git reset --hard cid (detele to all data)
+git config --global alias.s "status" {git s=git status} (add)
+git config --global --unset alias.s (remove)
+git checkout -b branch1 (create branch along with chechout to branch1)
+git push origin brach (push branch from git to hub)
+git push /git.hub/.com(path) branch1
+git push it not work go .git config change path
+git branch -d branch1 (delete) local
+git push origin -d branch1(delete) hub
+git stash save "label" (only stash modified and stagin/indexing files only)
+git stash show stash@{0} (see the stash 0 details)
+git stash show -p stash@{0} (see the stash 0 total information)
+git stash list (see list of stash files)
+git revert cid (back to previous from git to hub)
+git cherry-pick cid (merge to one branch to antoher branch only particular file)
+
+git merge r1 (main) all r1 files merge to main
+git cherry-pick cid (one branch local repo to another local repo only single file(cid))
+git merge main(with create commit id)
+git rebase main (without create commit id)
+git rebase --continue ( central to local conflict)
+git log -1 (single log show)
+git log --oneline (showing short details)
+git log --oneline -n(6)(how many commit lines use n)
+git log --author=nagarjuna (see author name to see all logs)
+git log --author=nagarjuna --oneline
+git log --since=2022-11-25
+git log --after=2022-11-25
+git log --until=2022-11-25
+git log --after=2022-11-25 --before=2022-10-25
+git log -- file abcd (file name) searching with particular file {Note: need after speach -- file}
+git commit -m "nagarjuna -m "vfhkulj" (add need coomit data)
+git log --grep "nagarjuna" (searching total in the gobal {Note : need to git " na" ) grep means (global regular expresions)
+git config --global alias.s "status" {git s=git status} (add)
+git config --global --unset alias.s (remove)
+git config --list
+==================
+<pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+---------------------------------------------------------------------------
+*git stash list (all stash data)
+git stash save "label name" (move to stash)
+stash@{0}(latest stash position)
+git stash show stash@{0}( (see the file name)
+git stash show -p stash@{0}( (see the all details)
+git stash taken only(modify file,staging index file)NOT new file
+*git revert cid (we can taken data back)(we can two 3 times also revert no problem)
+*git cherry-pick cid (we have two branches one branch did two commits if we use
+ merge it will come to file but we want only one commit than use git cherry-pick that commit cid)
+*(we want one commit file detail then use cherry-pick)
+git merge branch1(it create one new commit)
+git rebase branch1(with creating new commit)
+@git fetch (if any changes happend in git hub then you use git fetch then use git branch -r then use git show origin/main after use git merge origin/main then it come)
+git pull=fetch+merge
+git fetch
+git branch -r
+git show origin/main
+git merge origin/main
+
+=========================================
+LINUX:-
+=========================================
+tar (tep arque)
+xvf (extract verbege force
+cat etc/passwd (users)
+su - nagarjuna (chaging user)
+root
+==============
+MAVEN
+===============
+project management, build tool maven that why we are using maven
+Build tools :maven,ant,Ms-Build, Gradle
+POM : Project object model
+msi or exe- install windows
+rpm-install Linux
+war,jar,ear - Applications server (Tomcat)
+maven repo 3 types of repos
+------------------------------
+1 remote repo (3rd party)(others if we want we can use URL in POM file)
+2 central repo (maven communty)
+3 local repo (.m2)
+
+.m2 directory path
+-------------------
+laptop :drive/user/.me
+linux : home/nagarjuna/.m2 (nagarjuna that is user if there user nagarjuna)
+linux : root/.m2
+
+Project type(structure) we can create following commend:
+mvn archetype:geneate
+1.0 snapshot (means 1.0 is implemening or still not release)
+mvnrepository.com (use url and get all repogitory versions)
+where is poa there only one cmd(IMP)
+-------------------------------------------
+mvn goals:
+------------
+mvn validate (validate of code)
+mvn compile (to compile code genral this one doing developers)(after compile created classes)
+mvn test( testing code)
+mvn clean (remove all target files)
+mvn package (create package)
+mvn goal or lifecycle phages total goal 23
+:-mvn clean install
+intergrate -test means testing envinroment for suitble or not.
+
+
+local repository we have plugins(files,document)(version its there in properties in poa xml)
+plugins connect to central repo there are lot of plugins available.
+dependencis : we have use lot of dependencies which of there detail depended in this file (like group id, artifcatc id, version)
+
+local means .m2 file
+maven plugins are re-useble.
+
+
+@list all files git bash use ls,clear
+@list all files git bash use dir,cls
+maven artifactid means its create file name
+mvn archetype:geneate > a.out (mvn archetype:geneate this data saved a.out. what ever save data use commond > filename
