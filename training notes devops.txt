@@ -11,10 +11,6 @@ Lunixs Notes
 User Name : root 
 password : root123
 ----------------------------
-AWS Logins
-----------------------
-koduri.nag98@gmail.com
-nagarjunA@1
 ------------------------
 ==================================
 GIT:-
