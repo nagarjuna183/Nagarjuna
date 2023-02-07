@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('TEST') {
+            steps {
+                echo 'Testing Jenkins'
+                build quietPeriod: 5, job: 'test1'
+            }
+        }
+         stage('QA') {
+            steps {
+                echo 'Quality Jenkins'
+                build quietPeriod: 5, job: 'job1'
+            }
+        }
+         stage('PRO') {
+            steps {
+                echo 'Production Jenkins'
+                build quietPeriod: 5, job: 'test8'
+            }
+        }
+    }
+}
