@@ -11,7 +11,6 @@ Lunixs Notes
 User Name : root 
 password : root123
 ----------------------------
-------------------------
 ==================================
 GIT:-
 ==================================
@@ -77,9 +76,182 @@ git branch -r
 git show origin/main
 git merge origin/main
 
+grep "naga" filename
+
+@github Fork  Steps:-
+first one which person github hub repository we want open then use FORK option
+then take link and clone :like(ex: http//:github.com/nagarjuna183/batch86)
+add something and push that account
+then create pull request
+after who ever person taken(batch86) they can merge then that commit details automatically added.
+
+
 =========================================
 LINUX:-
 =========================================
+OS : windows,linux,mac
+1995-starting language -b now c lauguage
+2005 -git
+linux invotor : Linus Benedict Torvalds
+
+linux login conect 
+git bash : ssh root@ip address (ex: ssh root@192.168.20.132)
+cmd : ssh root@ipip address
+
+windows applications directory : c directory
+linux applications directory : / directory
+pwd : present working directory
+ls -lt   recent to old
+ls -ltr old to recent (list time recurcivily)
+ls -a (show all files along with hiden files)
+rm file (delete file)
+rmdir dir (delete directory)
+rm -rf file
+rm -rf dir
+mkdir -p dir1/dir2/dir3 (to create nested directory)
+absolute path (from staring to ending path)(EX: cd opt/dir1/dir2/dir3/dir4 Now you are in dir2 then use this path)
+reletive path (from the working to ending)(EX: cd dir3/dir4 Now you are in dir2 then use this path)
+cat > file then you can write data and save use CTRL+D
+cat >> file add another data here add data old data and new data
+cat > file add data here data modify
+which java : get path
+which maven :get path
+cp -r file /opt/file
+----------------------
+VI Editor:-
+1. insert mode : esc i
+2. command line mode
+3. execution mode :wq!, :q!, :w!
+--------------------------------
+command line mode tricks:-
+---------------------------------
+dd-delete a line
+ndd-no.of lines delete
+yy- copy a line
+p-paste
+nyy-no of lines copy
+dw-delete a word
+ndw-delete no.of word
+x-char delete
+$-end of the line
+^-starting of the line
+o-create a new line below
+O-above  a new line created
+G-ground last
+H-head top
+a - append (after one one word)
+r-replace
+R- continues replace
+u-undo
+
+grep -i "f*" nagarjuna (-i means casesencetive remove")
+----------------------------------------------
+Linux Main IMP
+------------------------------------------------
+ps -ef = task manager  (process effective field)
+cat /etc/passwd : logins
+list users : cat /etc/shadow
+nagarjuna:x:1003:1004::/home/nagarjuna:/bin/bash  : user tenga
+user name:password:userid:groupid:comment message: userhome directory:shell directory
+create user name :  useradd nagarjuna
+setup password : passwd prasad
+delete user : userdel nagarjuna :without deleting home directory
+delete user : userdel -r nagarjunaa : wth delete home directory
+create user manual: useradd -c "devops user" -d "/opt/nagarjuna" -s "/bin/sh" nagarjuna
+change any thing : usermod -s "/bin/bash" nagarjuna
+we can change password with only root user
+cat /etc/group
+create group :- groupadd group1
+delete group :- groupdel group1
+add user into group :- usermod -aG group1 nagarjuna
+{root-admin-user}
+# means root user
+$ means user
+swithing user : 
+su - nagarjuna
+whoami
+
+ower | group | others
+022 = umask value
+rwx=read write exec
+r=read = 4
+w=write = 2
+x-exec=1
+
+dir 
+ 777
+-022
+-------
+755
+-------
+7-rwx
+5-r-x
+5-r-x
+dir =drwx-r-x r-x
+
+file =
+
+ 666
+-022
+-------
+ 644
+------
+6-r-w
+4-r
+4-r
+file=rw-r--r--
+
+change permision per dir or file = chmod 777 filename
+
+only perticular dir1 chnge permssion : chmode 777 dir1
+change permision include file also: chmode -r  777 dir
+change all : chmode 777 * 
+ps -f | grep nagarjuna
+kill -9 process id 
+kill -9 1993 : pt1 user delete
+wc nagarjuna ; word count
+wc -l  nagarjuna ; lines
+wc  -c nagarjuna; characters
+wc -lw nagarjuna ; line words
+wc nagarjuna
+mv oldname newname
+mvn nagarjuna virat (change name)nagarjuna changed to virat
+df
+df -H disk details
+file or directory size = du -sh opt
+du -sh lib (lib director details)
+du -sh file or directory name (properties)
+
+Run levels:-7
+--------------
+init 0 : shutdown server
+init 1 : single user mode
+init 2 : multi user mode
+init 3 : multi user mode all permissions (default run level)
+init 4 : reserve mode
+init 5 : gui
+init 6 : reboot
+
+who -r = checking level
+
+
+
+
+RHEL :red hot company
+------
+linux
+centos
+ubuntu
+
+UNIX
+===============
+multi user mode
+multi tasking
+user to user communicate
+security
+
+we must install java for run all applications like maven, tomcat
+
 tar (tep arque)
 xvf (extract verbege force
 cat etc/passwd (users)
@@ -111,7 +283,6 @@ mvn archetype:geneate
 1.0 snapshot (means 1.0 is implemening or still not release)
 mvnrepository.com (use url and get all repogitory versions)
 where is poa there only one cmd(IMP)
--------------------------------------------
 mvn goals:
 ------------
 mvn validate (validate of code)
@@ -136,3 +307,150 @@ maven plugins are re-useble.
 @list all files git bash use dir,cls
 maven artifactid means its create file name
 mvn archetype:geneate > a.out (mvn archetype:geneate this data saved a.out. what ever save data use commond > filename
+=======================
+Tomcat:-
+=======================
+web appliaction : tomcat
+default port no: 8080
+conf/tomcat-users.xml (for config logins)
+Tomcat support only :war
+=====================
+JENKINS:-
+=====================
+program files and program data (we have to delete in windows if you install fresh)
+if you are normal your you can use : sudo (if your login with root that why no need to use)
+my view : your permisions jobs
+Queue : first in first out (booking counter like job queue)
+configure  System: Home directory of  jenkins and exicuter count)
+Global tool configuration: configure of tools (like git tomcat)
+manage plugins (install plugins)
+manage Nodes and Clouds : using nodes
+configure global security : permission of users
+manage credisatial : logins
+configure credential providers : execuve and restuct(don't show in logins in configure)
+manage user: number of users
+system infomation : system to data (all paths and details, about jenkins)
+load statistics : total data view graphically
+manage old data : old data storage
+prepare for shutdown : notify of jenkins label for shutdown info
+executor : 5 first 5 and next doing 6,7 that reason you can use only 5-10 only
+to avoid we are using slave (Node)
+Restrict project naming : we don't want some symbols that use ex : @&+
+which java : get path
+which maven : get path
+---------------------------------------------------------------------------
+Job Configuration:-
+---------------------------------------------------------------------------
+Discard od build : delete build history of job
+this project build with parameterized : using chosing option then show build with parameters then question then give option
+throttle builds : we can restict like month or year. we can mentions how many time we can run
+Execute concurrent builds if necessary : it click means parlelly build all builds
+Build periodically : that job to build periodically
+Poll SCM : that job to build why SCM code added
+Diffrence : 1. to build that particular time build job 2. poll scm means to code upload on like git that particular job build
+* * * * * : Min Hour Day Month Day of week (Ex: 12 12 13 0;  0,7 means sunday)
+
+@Build first job it automatically stared Reason : first checking jenkins work space its not available any data later checking git hub THERE IS DATA AVAILABLE that why conside some data added after automatically started.
+deploy to container plugin for deploy in the tomcat application
+
+@to build and set upstream and down stream we can use that particular job 
+1. build triggers : select build after build
+2. post build option : add and select Build other projects option
+OR
+1. build triggers : selete build option and open orher job and use sam as well as.
+
+PLUGINS:
+green ball : previous it use for showing when build success show in green colour
+deploy to container plugin : tomcat use deploy
+delivery pipeline, build pipeline, backup, thinbackup
+
+disk-usage: all job size (storage)
+next-build : next build number we can set 1 2 4 missed 3 then we can edit 4 replace delete with 3
+clone-workspace : one job workspace to copy other job then using clone-workspace 
+nested view : nested jobs creating
+blue ocean : diffirent view
+build pipeline: pipeline for using
+
+@restart: we can run localhost:8080/restart then it not safe restart with delete running job
+@safeRestart: we can run localhost:8080/restart then it safe restart safe running after restarting
+
+advanced option : to download  with url or though file
+Authorization : giving permissions
+role-based authorization : plugins
+ 
+matrix based : each user giving permissions and we need to add users
+
+project based : project based specific user allocate like user1 working developing team want read and write but per us only read option
+
+role based : based on roles of organisation
+
+@@when we are giving matrix and project based persion DON"T save without giving permission of admin
+Must add user give permission of Admin
+
+@ project based : we can give permission overall read permison and job read only permisssion then
+go to job and select Enble project-base  security and give all permission that particular job
+
+@role based : when we are click role based we can get one option 
+manage and assign roles there we create roles like devops and test
+
+@server/slave/agent/node concepts all are same
+slave no need to jenkins application but need java and java path also need same path need.
+
+@built in node : master
+
+@node tool Location : we can configure java and git also
+@jenkins backup processors
+1. downtime 
+2. backup
+3. upgrade
+4. techical verification (TVT)
+5. business verification (BVT)
+
+@reload configuration from disk : without restarting jenkins get data
+@thinbackup or period backup : we can set time to backup data
+
+Backup types :-
+full backup :we are taking full backup : full backup
+incremental backup : day from to today like monday to tuesday like daywise : full backup + increamental
+diffrencial backup : sunday to monday diffrent day backup : monday-tuesday
+------------------------------
+stop jenkis service
+@upgrade
+jenkins war file location : usr/share/java
+we need delete old war file and replace new war file start
+-------------------------------
+@jenkins pipelines:-
+1.Build, Delivery plugins
+2.Script
+
+@build with jobs you can selete freestyle Project
+@build with script use pipeline
+=====================================
+CHEF:-
+=====================================
+configuration mangament tools :-
+------------------------------------
+Ansible
+Chef
+Puppet
+Salt-Stack
+Useage of Configuration management tool:- no of servers work parallel at time
+
+@chef componants:-
+workstation, chef server, nodes machines
+
+chef server link :- manage.chef.io
+
+workstation : chef-workstation
+nodes : chef client 
+chef server : chef server
+rpm file install:-
+rpm -ivh file.rpm :-installation rpm file
+rpm -qa chef* (see it is installed checking)
+rpm -e file* (delete rpm file)
+workstation to chef server to connect to use staterkit key
+powershell for chef
+@we can run any commond on chef inside chef-repo
+node connect to workstationand chef server followed command:
+knife bootstrap 192.168.20.132 -U root -P root123 -N Node-1
+Knife bootstrap     ip          -U      root -p passwd -N Node-1
