@@ -36,8 +36,8 @@ git cherry-pick cid (merge to one branch to antoher branch only particular file)
 
 git merge r1 (main) all r1 files merge to main
 git cherry-pick cid (one branch local repo to another local repo only single file(cid))
-git merge main(with create commit id)
-git rebase main (without create commit id)
+@git merge main(with create commit id)(one branch add and commit another branch one file add and commit and use git merge we will get another commit cid)
+@git rebase main (without create commit id)(one branch add and commit another branch one file add and commit and use git rebase we won't get another commit cid)
 git rebase --continue ( central to local conflict)
 git log -1 (single log show)
 git log --oneline (showing short details)
@@ -68,7 +68,7 @@ git stash taken only(modify file,staging index file)NOT new file
  merge it will come to file but we want only one commit than use git cherry-pick that commit cid)
 *(we want one commit file detail then use cherry-pick)
 git merge branch1(it create one new commit)
-git rebase branch1(with creating new commit)
+git rebase branch1(without creating new commit)
 @git fetch (if any changes happend in git hub then you use git fetch then use git branch -r then use git show origin/main after use git merge origin/main then it come)
 git pull=fetch+merge
 git fetch
@@ -167,9 +167,8 @@ add user into group :- usermod -aG group1 nagarjuna
 {root-admin-user}
 # means root user
 $ means user
-swithing user : 
-su - nagarjuna
-whoami
+swithing user : su - nagarjuna
+whoami : we can get present user
 
 ower | group | others
 022 = umask value
@@ -203,9 +202,9 @@ file=rw-r--r--
 
 change permision per dir or file = chmod 777 filename
 
-only perticular dir1 chnge permssion : chmode 777 dir1
-change permision include file also: chmode -r  777 dir
-change all : chmode 777 * 
+only perticular dir1 chnge permssion : chmod 777 dir1
+change permission include file also: chmod -r  777 dir
+change all : chmod 777 * 
 ps -f | grep nagarjuna
 kill -9 process id 
 kill -9 1993 : pt1 user delete
@@ -215,11 +214,11 @@ wc  -c nagarjuna; characters
 wc -lw nagarjuna ; line words
 wc nagarjuna
 mv oldname newname
-mvn nagarjuna virat (change name)nagarjuna changed to virat
+mv nagarjuna virat (change name)nagarjuna changed to virat
 df
 df -H disk details
 file or directory size = du -sh opt
-du -sh lib (lib director details)
+du -sh lib (lib directory details)
 du -sh file or directory name (properties)
 
 Run levels:-7
@@ -233,9 +232,6 @@ init 5 : gui
 init 6 : reboot
 
 who -r = checking level
-
-
-
 
 RHEL :red hot company
 ------
@@ -293,7 +289,6 @@ mvn package (create package)
 mvn goal or lifecycle phages total goal 23
 :-mvn clean install
 intergrate -test means testing envinroment for suitble or not.
-
 
 local repository we have plugins(files,document)(version its there in properties in poa xml)
 plugins connect to central repo there are lot of plugins available.
@@ -425,6 +420,44 @@ we need delete old war file and replace new war file start
 
 @build with jobs you can selete freestyle Project
 @build with script use pipeline
+
+=============================================
+AWS:-
+==============================================
+EC2
+AMI
+SNAPSHOT
+VOLUMES
+ASG
+ELB
+
+VPC
+====
+Subnets
+Gateway
+Route table
+ENI
+EIP
+peering
+
+
+RDS
+Route-53
+EFS
+S3
+SNS
+code commitcode deploy
+code pipe line
+code stare
+EKS
+ECS
+Lamda
+
+IAM
+Cloudwatch
+SMS
+================================================
+
 =====================================
 CHEF:-
 =====================================
@@ -444,13 +477,276 @@ chef server link :- manage.chef.io
 workstation : chef-workstation
 nodes : chef client 
 chef server : chef server
+
 rpm file install:-
 rpm -ivh file.rpm :-installation rpm file
 rpm -qa chef* (see it is installed checking)
 rpm -e file* (delete rpm file)
 workstation to chef server to connect to use staterkit key
 powershell for chef
-@we can run any commond on chef inside chef-repo
+@we can run any command on chef inside chef-repo
 node connect to workstationand chef server followed command:
 knife bootstrap 192.168.20.132 -U root -P root123 -N Node-1
 Knife bootstrap     ip          -U      root -p passwd -N Node-1
+
+staterkit in we are using chef-repo
+
+workstation (cookbooks, recipes)
+@Run the cookbook: chef genarate cookbook cookbook1
+knife cookbook upload cookbook1
+after come to cookbook1 and there recipes and open default.rb
+there write rb code
+chef-client =run in node
+create chef.sh and give chmod 777 chef.sh permision
+crontab -e then run below script
+* * * * * /opt/chef.sh
+min hour date day of the month month of the year day of the week 
+today 09-02-2023
+
+18 12 09 02 05 (week means (0,7 sunday)
+
+{in organisation may 2 hour and 4 hours)
+
+create file with cookbook in default.rb file
+
+file "/opt/file123"
+action :create
+end
+
+create directory with cookbook in default.rb file
+
+directory "/opt/dir123"
+action :create
+end
+-------------------------------
+chef server add node then we can use blow script
+
+knife node run_list add Node-1 "recipe[cookbook1]"
+
+we need to create chef.sh file give permisson chmod +x chef.sh 
+
+chef.sh following code:-
+------------------------
+for i in Node-1 Node-2
+do 
+knife node run_list remove $i "recipe[git]"
+done
+
+remove from run list:-
+for i in Node-1 Node-2
+do 
+knife node run_list add $i "recipe[git]"
+done
+
+multi nodes run:-
+------------------------
+for i in $(knife node list)
+do 
+knife node run_list add $i "recipe[git]"
+done
+
+
+crontab -l for checking crontab file open
+
+package installing with rubby file
+---------------------------------
+package "git" do
+action :install
+end
+
+Uninstall package:-
+---------------------
+package "git" do
+action :remove
+end
+
+default if your are not mentions
+
+package "git"
+---------------------------------
+services start followed below:-
+
+package "httpd" do
+action :install
+end
+
+service "httpd" do
+action :start
+end
+
+service "httpd" do
+action :enble 
+end
+
+if it not run do following step
+
+systemctl stop firewalld
+
+templete concept:-
+-------------------
+
+package "httpd" do
+action :install
+end
+
+service "httpd" do
+action [:start, :enable]
+end
+
+templete "/var/www/html/index.html" do
+source 'test.erb'
+end
+
+then we can create templetes directory
+cook books site : https://supermarket.chef.io
+
+DATA BAGS
+-----------------------------------
+data bags : global varibles
+we must upload data bags json file only
+Upload workstation to server:-
+----------------------------------
+knife data bag create users
+knife data bag create groups
+
+json file create user:- user1.json
+
+{
+"id" :  "user1",
+"comment" :  "devops user",
+"uid" :  2378,
+"gid" :  0,
+"home" :  "/home/user1",
+"shell" :  "/bin/bash"
+}
+
+
+json file create user:- user2.json
+
+{
+"id" :  "user2",
+"comment" :  "devops user",
+"uid" :  0,
+"gid" :  3230,
+"home" :  "/home/user2",
+"shell" :  "/bin/bash"
+}
+
+Upload workstation from chef server
+---------------------------------------
+knife data bag from file users user1.json user2.json
+
+
+create group json format: group.json
+-----------------------------------------
+
+{
+"id": "batch86",
+"gid": 2029,
+"members": ["user1", "user2"]
+}
+
+upload workstation to server
+---------------------------------
+knife data bag from file groups group.json
+
+json format uploading usera and group:-
+
+chef generate cookbook users
+============================
+
+default.rb
+===========
+
+search("users", "*:*").each do |user_data|
+user user_data["id"] do
+comment user_data["comment"]
+uid user_data["uid"]
+gid user_data["gid"]
+home user_data["home"]
+shell user_data["shell"]
+end
+end
+
+group.rb
+=========
+
+search("groups", "*:*").each do |group_data|
+group group_data["id"] do
+gid group_data["gid"]
+members group_data["members"]
+end
+end
+
+============================
+Upload all rube files following commond;-
+@knife node run _list add Node-1 "recipe[users]", "recipe[user::group]", "recipe[user::test]" 
+
+upload at a single commond following below:-
+-----------------------------------------------------
+where we are creating default.rb file there under we can write following scripe:- include_recipe "users::group"
+if we want 2 where we are creating default.rb file there under we can write following scripe:- 
+
+include_recipe "users::group"
+include_recipe "users::test"
+================================================
+search("users", "*:*").each do |user_data|
+user user_data["id"] do
+comment user_data["comment"]
+uid user_data["uid"]
+gid user_data["gid"]
+home user_data["home"]
+shell user_data["shell"]
+end
+end
+
+include_recipe "users::group"
+
+=============================================
+if you upload from server to node ALWAYS UPLOAD LATEST VERSION
+we want particular version we need to go environment concept
+
+generally enveronment defult if are creating manual envirn file go though going file that version they ca take 
+Ex: if we are uploading file default 0.1.0 if environment 0.1.2 then its goes 1.2 as per environment
+==================================================================
+Roles:-
+role is group(list) of cookbooks
+
+uploading roles workstation from chef-server:-
+
+knife role from file role.rb
+
+@we must use this commond only roles directory place
+
+uploading roles run list in chef server following commond:-
+knife node run_list add Node-1 "roles[Test-role1]"
+knife node run_list remove Node-1 "roles[Test-role1]"
+
+upload cookbooks, roles run list following below:-
+knife node run_list remove Node-1 "roles[Test-role1]" "recipe[cb1]"
+list the all cookbooks:- knife cookbook list
+ 
+@@if you go company we need all cookbooks that time we need to replace pem file .chef
+
+we want to download all cookbooks from server to workstation
+
+@@ commond :- knife download /cookbooks
+
+CHEF SERVER DETAILS FIND FOLLOWED COMMONDS:-
+-------------------------------------------------------------
+
+list nodes :- knife node list
+delete node :- knife node delete Node-1
+delete cookbook :- knife cookbook delete cb1
+list data bag :- knife data bag list
+delete data bag :- knife data bag delete users
+list environment : knife environment list
+show environment :- knife environment show env1
+delete environment :- knife environment delete env1
+
+
+
+
+
+
+
