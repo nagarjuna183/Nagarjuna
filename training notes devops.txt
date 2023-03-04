@@ -743,10 +743,160 @@ delete data bag :- knife data bag delete users
 list environment : knife environment list
 show environment :- knife environment show env1
 delete environment :- knife environment delete env1
+====================================
+ANSIBLE
+====================================
+Redhat company : Ansible
+
+its conect with SSH
+Ansible : agent less configuration system
+chef, puppet : agent configuration  system
+
+Installation Ansible:-
+-----------------------
+yum repolist
+yum install epel-release -y (Extra Package for Enterprise Linux
+yum install openssl -y
+yum install ansible -y
+-------------------------
+Ansible conf file : /etc/ansible/ansible.cfg
+Ansible Home directory : etc/ansible
+Inventory file : etc/hosts
+
+we need to open ansible.cfg and enble followed user
+
+inventory : hosts 
+sudo user : root
+
+Login to server :-
+----------------
+ssh@root@ip
+password
+
+Login to user:-
+-----------------
+su - user
+
+we can access user without password following format:-
+we need to open : visudo
+@@we need to be edit this file(visudo) BEWARE
+we need to give permission for what users you want that files
+
+if you login any thing use first sudo
+------------------------
+sudo yum install git -y
+
+NOPASSWD: ALL (always with out password)
+we can create ssh key : ssh-keygen
+its save in the directory ansible/.ssh
+
+server to node copy key:
+----------------------------
+ssh-copy-id ansible@192.168.20.131
+then it give ansible password
+
+copy data with OS:-
+---------------------
+windows to linux :winsp
+linux to linux : scp src user@ip : path
+ secure copy source file
+       scp              src            ansible @192.168.20.131:/home/ansible
+
+FILE COPY :
+-------------
+@@scp reddy ansible@192.168.20.131:/home/opt
+
+Directory Copy:
+------------------
+scp -r nag ansible@192.168.20.131:/home/opt
+
+ANSIBLE COMMANDS:
+==================
+
+LINUX COMMANDS IN ANSIBLE:-
+===============
+checking ansible to connect how many ip address
+
+connecting commond : ansible all -m ping
+
+Installation process of ansible in node:-
+
+@ create ansible user :give later password
+@visuo :give full permissions 
+later shh-copy-id ansible@ip give in sever only
+last ip address add in the server file: vi /home/ansible/host
+----------------------------------------------------
+
+ansible 192.168.20.131,192.168.20.132 -m ping
+
+ansible all/group/id -b -a "ls-l/opt"  : to list in opt (-b means sudo permision -a atribute)
+create a file : ansible all -b -a "touch /home/ansible/nagarjuna"
+create a directory : ansible all -b -a "mkdir /home/ansible/nagarjuna"
+ansible 192.168.20.131, localhost -b -a "touch /home/opt/sneha"
+
+installing packages:-
+ansible all -b -a "yum install git -y"
+ansible all -b -a "yum install wget -y"
+ansible all -b -a "git --version"
+
+ansible all -b -a "service jenkins status"
+
+ansible all -b -a "useradd dp" (create user)
+ansible all -b -a "head -3 /etc/passwd" (list users top 3)
+
+ansible all -b -a "userdel -r dp"
+---------------------------------------------------------
+ANSIBLE MODULES ANSIBLE;-
+=====================
+
+installing packages in modules:-
+-----------------------------------
+ansible all -m yum -b -a "name =git state=latest" (to install package)
+here we can get "changed option"
+
+ansible all -m yum -b -a "name =git state=absent" (to remove package)
+ansible all -m yum -b -a "name=package state=absent"
+ansible all -m yum -b -a "name=httpd"
+ansible all -m service -b -a "name=httpd state=started" (start service with command)
+ansible all -m user -b -a "name=user1 state=present(or) absent" (creating users)
+ansible all -m file -b -a "name=/opt/nagarjuna state=directory" (createing directory)
+ansible all -m copy -b -a "src=/opt/nagarjuna dest=/opt/m"
+-------------------------------------------------------------
+playbook :- to run multi commands
+we should run playbook yml or yaml
 
 
+git install ansible
+-----------------
+ansible all -b -a "yum install git"
+ansible all -m yum -b -a "name=git state=present"
 
+ansible-playbook play.yml (file)
+------------------------------------
 
+---
+- hosts: all
+  become: yes
+  tasks:
+  -name= installing git package
+   yum: name=git state=latest
 
+:-MEANINGS
+--------------
+hosts = all (group)
+become =yes (root,admin permission or -b -a)
+tasks (label name)
 
+output review;-
+------------------
+green =no changes (ok)
+yellow = changed something
+red = unreachable
+@@@ANY CHANGES OF ANSIBLE HOSTS (INVENTORY FILE WE SHOULD OPEN WITH SUDO COMMAND NOT VI)
 
+we can run with following command:-
+------------------------------------------
+ansible-playbook play.yml
+
+we are using ansible play.yml run at a time more tasks
+if we are unsinstall package of chef we need remove .rpm
