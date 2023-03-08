@@ -900,3 +900,162 @@ ansible-playbook play.yml
 
 we are using ansible play.yml run at a time more tasks
 if we are unsinstall package of chef we need remove .rpm
+=================================================
+DOCKER
+=================================================
+
+Virtulation : one single system act as a no of systems like using VM
+single PC we are creating some servers
+
+docker -> container ->app,data
+
+Docker useage of Organisation:-
+-----------------------------------
+after enter code then create image run that code application.
+code -> application production or testing  
+
+Installation Docker :-
+--------------------
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+--------------------------------------------------------
+curl is like wget
+
+service docker start (need run for start docker)
+systemctl enable docker  (booting proccess enable)
+docker info (total details of docker)
+
+Docker Commands:-
+---------------------
+docker images (see all images)
+docker ps (only running containers)
+docker ps -a (all containers)
+docker ps -l (runniing latest)
+docker search ubuntu (searching in command)
+docker run -it image name/image id (run docker image)
+docker run -it centos (inside a container)
+docker run -itd centos (without going to container) OR
+docker run -d centos:7.9.2009
+
+i=intractive mode
+t=terminal
+d =detched (not connect only create)
+
+use exit command
+user ctrl +p+q (then you can come to container without exiting)
+docker attach container id/name (to connect container)
+docker start container id/name (to start exiting or closed container)
+docker stop container id/name (to stop container) or exit
+
+docker pull images (to get images)
+docker commit container id (to get container to image create)
+docker tag image id "name of docker image" (to set name of image)
+EX:-docker tag 86sujgsj "testcentos"
+docker push devops (to upload tag into docker hub)
+docker rmi images name 
+docker rmi centos (it  delete defualt tag )
+docker rmi image id (it delete docker image)
+ex:- docker rmi centos:7.9.2009 (delete image)
+docker login (to connet docker hub)
+docker rmi -f images id (delete forcely)
+docker rm container id (delete container)
+docker rm -f container id (delete forcely)
+docker ps -aq (list all container with only id's)
+docker rm $(docker ps -aq) (delete all container)
+------------------------------------------------
+dockerfile --> we must create file dockerfile
+------------------------------------------------
+FROM imagename
+MAINTAINER "username"
+
+docker build -t "nagarjuna" . (to run dockerfile)
+docker build -t "nagarjuna" dockerfile
+
+-t means = tag
+. means= current directory
+
+ubuntu image use first commend :- apt-get
+
+apt-get update -y
+apt-get install git -y
+
+dockerfile we are using already that command it showing {using cache} option
+EXPOSE 81 : added into port id
+CMD : after run dockerfile we are using cmd that command will show details
+ENTRYPOINT also same as cmd
+
+docker cp src file container id : path
+docker cp tomact-user.xml 7hrg7gh:/opt (copy to running container)
+
+if running containers image not deleted that we need to stop the container and delete the image
+
+docker inspect container id ( to get all details about container)
+docker info (total images and container)
+
+@@@ we are using command in the organisation to connect container
+docker exec -it container id /bin/bash
+EX;  docker exec -it 7gt8fa4  /bin/bash
+
+Host OS to container sharing
+--------------------------------
+docker run -itd -v host machine path:docker path image name
+docker run -itd -v /opt/docker:/opt/docker centos
+
+Container to Container sharing
+---------------------------------
+docker run -itd --volumes-from container id image name
+docker run -itd --volumes-from 57ghgrg7 centos
+docker stats container id (to get memory)
+docker run -itd -m 500m centos (to allocate memory)
+top (which one using more memory)
+history (total using all commands in linux)
+docker logs container id (total using commands in that container)
+docker history image name
+@@logs for container @@history for image
+-p 8081:8080 (8080 standard 8081 custom)
+
+docker run -it -p 8081:8081 container id /bin/bash
+docker exec -it 7j4gyhjs /bin/bash
+@@container renaming after creating
+docker rename old name new name
+docker rename Naurhun nagarjuna
+@@container naming with run the image
+docker run -itd --name cont2 centos
+@@container restarting and pause
+container restart container id
+container pause container id
+if we connect to pause container we need to unpause container
+docker unpause flmhh78
+@@docker kill 7y57y
+docker events (total details of all activities)
+docker events --since=1h (checking since )
+docker events -f event=stop (filter)
+container id is call hostname
+docker run -it -u nagarjuna centos /bin/bash (connect with user name)
+docker run -it -h hostname centos (connect with hostname)
+docker nerwork ls (to get total networks)
+docker inspect 0da0d8d80bc6 |grep -i ipa (to find with grep)
+after creating network we need to create container per particular network we following below commands
+docker run -it --net networkname centos
+docker run -it --net networkname --ip 10.1.5.33 centos
+@@how many container are there in default network?
+docker inspect networkname/id
+docker inspect r7t7noj
+docker inspect 8gu5n | grep IPv4Add | wc -l
+@if any one ask for create container
+docker run -itd --name server1  --net bridge1 -p 87:80 -h host1 --ip 10.5.0.1 image:tag
+docker run -itd --name server1 -p 87:80 --net bridge1 -h host1 --ip 10.5.0.1 centos:7.9.2009
+docker images -q (list of images)
+docker run -itd -p 81:80 wordpree
+docker link:-
+---------------
+docker run -itd -p 82:80 --link db-cid:image webapp (old days using)
+docker compose (present days)
+
+https://github.com/docker/awesome-compose/blob/master/wordpress-mysql/compose.yaml
+
+@@we need to download and use yml file use following commands:
+
+docker compose up -d
+docker compose down
+
