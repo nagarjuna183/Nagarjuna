@@ -1,3 +1,12 @@
+====================================
+DEVOPS NOTES
+
+TOPICS:- GIT, TOMCAT, MAVEN, LINUX, JENKINS, CHEF, ANSIBLE, DOCKER
+
+
+
+
+====================================
 https://github.com/polarapu/batch86.git
 
 if reject:
@@ -6,13 +15,16 @@ git pull --rebase
 
 git push
 ==============
-Lunixs Notes
+Lunix Notes
 --------------
 User Name : root 
 password : root123
 ----------------------------
 ==================================
-GIT:-
+GIT
+
+
+
 ==================================
 
 git reset head file (index to work)
@@ -87,7 +99,10 @@ after who ever person taken(batch86) they can merge then that commit details aut
 
 
 =========================================
-LINUX:-
+LINUX
+
+
+
 =========================================
 OS : windows,linux,mac
 1995-starting language -b now c lauguage
@@ -253,9 +268,13 @@ xvf (extract verbege force
 cat etc/passwd (users)
 su - nagarjuna (chaging user)
 root
-==============
+=======================================
 MAVEN
-===============
+
+
+
+
+=========================================
 project management, build tool maven that why we are using maven
 Build tools :maven,ant,Ms-Build, Gradle
 POM : Project object model
@@ -303,14 +322,21 @@ maven plugins are re-useble.
 maven artifactid means its create file name
 mvn archetype:geneate > a.out (mvn archetype:geneate this data saved a.out. what ever save data use commond > filename
 =======================
-Tomcat:-
+TOMCAT
+
+
+
+
 =======================
 web appliaction : tomcat
 default port no: 8080
 conf/tomcat-users.xml (for config logins)
 Tomcat support only :war
 =====================
-JENKINS:-
+JENKINS
+
+
+
 =====================
 program files and program data (we have to delete in windows if you install fresh)
 if you are normal your you can use : sudo (if your login with root that why no need to use)
@@ -422,7 +448,11 @@ we need delete old war file and replace new war file start
 @build with script use pipeline
 
 =============================================
-AWS:-
+AWS
+
+
+
+
 ==============================================
 EC2
 AMI
@@ -456,10 +486,13 @@ Lamda
 IAM
 Cloudwatch
 SMS
-================================================
 
 =====================================
-CHEF:-
+CHEF
+
+
+
+
 =====================================
 configuration mangament tools :-
 ------------------------------------
@@ -745,6 +778,10 @@ show environment :- knife environment show env1
 delete environment :- knife environment delete env1
 ====================================
 ANSIBLE
+
+
+
+
 ====================================
 Redhat company : Ansible
 
@@ -902,6 +939,10 @@ we are using ansible play.yml run at a time more tasks
 if we are unsinstall package of chef we need remove .rpm
 =================================================
 DOCKER
+
+
+
+
 =================================================
 
 Virtulation : one single system act as a no of systems like using VM
@@ -1058,4 +1099,240 @@ https://github.com/docker/awesome-compose/blob/master/wordpress-mysql/compose.ya
 
 docker compose up -d
 docker compose down
+docker is a containertion tool
+===========================================
+K8S
 
+
+
+
+=============================================
+k8s is a container arteachstation tool
+k8s managing containers if any container not work or stop it automatically start
+k8s ia manager of container inivated of google
+
+k8s simmilar tools
+k8s (google)
+openshift (red hot)
+docker swarm (docker)
+
+k8s master --> nodes
+clustor : 2 or more servers using that called cluster
+node : server
+
+k8s installation packages:-
+docker
+k8s
+master 
+
+worker nodes:-
+docker 
+k8s
+
+run it MASTER and created container in WORKER NODES
+
+after installation of packages node and master we are run master init after created one that we run in the nodes
+
+@@kubeadm init (for key staring)
+@@kubeadm token create --print-join-command (to get key anytime every time)
+
+k8s componants:-
+api (how to connect)
+etcd (entaier info of k8s)
+controller (controll of everything)
+scheduler (schedule of k8s)
+kube-proxy (communicate node to master and master to node)
+container runtime (docker)
+kubelet (like captain)
+
+packages of versions:-
+
+<=1.23 (docker ,k8s)
+1.24, 1.25, 1.26 (docker, k8s, crio)
+crio (container runtime interface)
+installation we can follow note of devops note
+
+PODS : no of container
+pod is building blocks of container
+
+kubectl describe node nodename (all details of node)
+kubectl get nodes (checking nodes or list)
+kubectl get pods (checking pods or list)
+kubectl get pods -a (all pods) (Dont't Delete)
+
+<=1.23 version we can see docker container : docker ps
+1.24 to 1.26 we can see docker container : crictl
+docker = crictl all commands use where docker is there
+
+crictl rm -f $(crictl ps -aq) (delete all pods)
+
+creating pod:-
+kubectl run pod1 --image=nginx
+we need check in the worker node crictl ps then get
+
+kubectl get pods -o wide (we can get all details in master node)
+kubctl delete pod podname (delete pod)
+
+kubectl describe pod podname (to get all details about pod)
+
+kubectl get pods pods --all-namespaces (all pods)
+kubectl get pods pods -A (all pods)
+
+k8s pod .yml or yaml file
+
+kubectl create -f pod.yml (run pod)
+kubectl run pod1 --image=nginx (run pod)
+
+pod componants:-
+api (version)
+kind (type of method like pod)
+meta data ( belongs of pod details)
+spec : (we are providing info)
+
+.yml file delete options
+kubectl delete pod podname
+kubectl delete -f pod.yml
+
+namespace (for catagories for specific)
+
+kubectl get ns (list of name spaces)
+kubectl get namespaces (list of name spaces)
+
+kubectl get ns ns-1 (create name space)
+kubectl run pod2 --image=nginx -n ns-1 (run)
+
+kubctl get pods -n ns-1 (to list of name space)
+kubectl describe pod pod2 -n ns-1 (describe)
+kubectl delete pod2 -n ns-1 (delete pod in name space)
+
+replicaset -->pod-->container
+Replicaset is contains no of pods
+
+busybox sample container
+
+kubectl create -f pod2.yml (pod2 is name space name create name space))
+kubectl delete -f pod2.yml (delete name space)
+kubectl delete ns ns-1 (delete namespace with command)
+
+replicaset is load distrubution and if any pod will stop
+
+kubectl get rs (to check replicaset)
+kubectl get replicaset (to check replicaset)
+
+kubectl get pods,rs (we can search with pods and rs)
+
+kubectl create -f rs.yml (run the yaml file)
+
+kubectl describe rs rsname (to describe replicaset) OR
+kubectl describe rsname (to describe replicaset)
+
+kubectl delete rs rsname (delete replicaset)
+kubectl delete -f rs.yml (delete replicaset)
+
+@@if .yml file change of no pods application working down.
+
+apply = modify
+
+kubectl apply -f rs.yml (we can modify with using apply)
+first open yml file and change count and use apply command
+
+@@with out open file following command
+kubectl scale --replicas=3 -f rs.yml (we can change with command)
+
+@@replicaset Disadvangage:
+if we can change image its not change automatically.
+then we need to start with new that why we need delete pods
+image version also we are not upgrade
+
+@@IMP CONCEPT
+Deployment
+
+replicaset vs deployement
+
+deployement :-
+withoout down time 
+tollright
+-----
+ASN : it automatically change new version in deployment
+
+kubectl create -f deploy.yml (to run yml)
+kubectl get deployment (or) deploy (to check)
+
+
+kubectl rollout status deploy deployement name (running details after changing we can see all details)
+kubectl rollout history deploy deployement name (history)
+
+kubctl create -f deploy.yml --record (creating record)
+kubectl get pods,rs,deploy (to get all pods and rs deploy)
+kubectl get all (get all)
+
+kubectl scale --replicas=4 -f deploy.yml (increase and decrease)
+
+service:
+--------
+
+node port range 30k to 32.8k
+
+Node port-->service port--> target port (pod)
+
+target port we added label and that label attche the service port
+label we need add webapp and create service .yml file and run
+that time it connect to target port
+
+kubecl get services (to get services)
+demonsets means if each of node create one single container.
+and if any node added also automatically add one more container
+
+kubectl get ds or demonsets 
+kubectl get ds -A (all)
+kubectl delete -f ds.yml
+kubectl delete ds dsname
+
+kubectl describe -f deploy.yml (detals)
+kubectl edit -f deploy.yml
+
+configmaps (like data bags variable stored)
+kubectl get cm
+kubectl create -f cm.yml
+@@if we are calling configmap in pod we are adding in yml in envFrom 
+
+secret:-
+we are storing hide informaion (sensitive data )
+kubectl get secret
+kubctl create -f sec.yml
+kubectl describe secret name
+@@if we are calling secret in pod we are adding in yml in secretRef
+
+
+@Static pods:- only create pods create in node
+path :-/ect/kubernets/manifests
+create one yml if you delete(move) only that file only
+
+@@we can add node name of yml file we can create that particular pod
+
+IPM POINTS:-
+@@Scheduling:- 
+to stop:-
+----------
+kubectl cordon ipname (to stop node and called scheduling of node) 
+kubectl cordon ip-127....
+
+to restart
+---------
+kubectl uncordon ipname (to stop node and called scheduling of node) 
+kubectl uncordon ip-127....
+
+@@ first stop one work and start another one
+we can stop and move to another node following below
+
+kubectl drain ipname (stop node and move all container to other node)
+kubectl drain ip-......
+
+
+BLUE GREEN DEPLOYMENT:-
+-------------------------------
+@@following step for stop node and move all container,packages
+kubctl cordon ipname
+kubctl drain ip (or) kubectl drain ip --ignore-daemonset
+kubectl uncordon ipname
+------------------------------------------------------------
