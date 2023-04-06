@@ -185,7 +185,7 @@ $ means user
 swithing user : su - nagarjuna
 whoami : we can get present user
 
-ower | group | others
+owner | group | others
 022 = umask value
 rwx=read write exec
 r=read = 4
@@ -217,7 +217,7 @@ file=rw-r--r--
 
 change permision per dir or file = chmod 777 filename
 
-only perticular dir1 chnge permssion : chmod 777 dir1
+only perticular dir1 change permssion : chmod 777 dir1
 change permission include file also: chmod -r  777 dir
 change all : chmod 777 * 
 ps -f | grep nagarjuna
@@ -243,7 +243,7 @@ init 1 : single user mode
 init 2 : multi user mode
 init 3 : multi user mode all permissions (default run level)
 init 4 : reserve mode
-init 5 : gui
+init 5 : GUI
 init 6 : reboot
 
 who -r = checking level
@@ -392,10 +392,10 @@ nested view : nested jobs creating
 blue ocean : diffirent view
 build pipeline: pipeline for using
 
-@restart: we can run localhost:8080/restart then it not safe restart with delete running job
+@restart: we can run localhost:8080/Restart then it not safe restart with delete running job
 @safeRestart: we can run localhost:8080/restart then it safe restart safe running after restarting
 
-advanced option : to download  with url or though file
+advanced option : to download  with URL or though file
 Authorization : giving permissions
 role-based authorization : plugins
  
@@ -1109,7 +1109,7 @@ K8S
 =============================================
 k8s is a container arteachstation tool
 k8s managing containers if any container not work or stop it automatically start
-k8s ia manager of container inivated of google
+k8s is a manager of container inivated of google
 
 k8s simmilar tools
 k8s (google)
