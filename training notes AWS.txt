@@ -1,0 +1,197 @@
+=============================================
+AWS
+
+
+
+
+==============================================
+EC2
+AMI
+EBS
+SNAPSHOT
+VOLUMES
+ASG
+ELB
+
+VPC
+====
+Subnets
+Gateway
+Route table
+ENI
+EIP
+peering
+
+
+RDS
+Route-53
+EFS
+S3
+SNS
+code commit
+code deploy
+code pipe line
+code star
+EKS
+ECS
+Lamda
+
+IAM
+Cloudwatch
+SMS
+================================
+AWS Concepts:-
+------------------
+EC2
+AMI
+EBS
+SNAPSHOT
+VOLUMES
+ASG
+ELB
+================================
+cloud : following cloud
+
+aws : amazon
+azure : microsoft
+gcp : google
+soft-layer : ibm
+
+AWS Services:
+----------------
+AMI :- Amazon machane image
+
+EC@ :elastic compute cloud
+auto-assign public ip : Enable
+security group linux port no : 22
+root volume (SSD) : gp2 (ram)
+volume we can increase but we can't decrease
+if we need to connect use putty ppk format
+windows sever need 30 GB volume
+
+EBS : Elestic block store
+-----------------------------
+checking volume from server
+lsblk : list block storage
+df : disk file system
+df -h : details with mb,kb
+
+if you link volume we must same availabity zone (instance and volume)
+don't create snapchat we can click
+we can copy instance id and paste in attaching volume
+
+attaching volume to instance volume:
+-----------------------------------------
+
+mkfs -t ext4 /dev/xvdf (delete all data of volume) (creating file system)
+df -h
+mkdir /prasad
+mount -t ext4 /dev/xvdf /prasad
+
+if volume we need to attach one more instance then no need to create file system)
+
+Snapshot (backup)
+--------------------
+snapshot need to create volume (convert snap to volume)
+copy snapshot to copy one region to other region copy
+
+Volume:
+---------
+volume modify there we can change storage
+detach volume (remove volume)
+
+ELB:- Elestic Load Balancer
+------------------------------
+AMI : one server copy with using AMI
+AMI=snapshot 
+snapshot to create image
+
+we want change any thing html path
+
+vi /var/www/html/index.html (html path)
+ELB use for share equal load data
+before create ELB we must set target group
+lanch like more (create new instance)
+
+ASG: Auto Scalling Group
+----------------------------
+before create ASG we need set Launch configurations
+sample dd scripts (for loading ) scalling up of servers
+
+RDS: Relation Database Services
+
+we will get server with database
+
+ease create it can automatically some details
+
+database port : 3306
+Endpoint for database
+
+Route 53:
+----------
+domain name creating for using route 53
+dns create then link instance
+
+EFB:- Elestic file system
+-------------------------
+like shortcut key
+
+EBS one one server
+EFS we can link no of servers
+
+S3: simple storage services
+----------------------------- 
+s3 bucket use for store data and use and delete
+
+VPC: virtual Private Cloud
+----------------------------
+
+cidr.xyz website for ip addresses
+
+10.81.0.0/16 (10.81 standard) 256 in 256 and 1reserved(254)
+1081.0.0./24 (10.81.0. stanard)
+
+user--> igw(internet gate way) VPC(virtual private cloud)--> Router--> Available Zones--> subnets
+
+EIP:Elastic IP Addess (standand IP Addess)
+NAT : nate gate way to connect pvt instance
+EIP : we can link network, NAT any thing
+@@we need to release EIP
+
+ENI : Elastic Network Interface
+---------------------------------
+one server to we can use more ip's
+we can check first subnets
+
+peering : to connect one account other account link
+
+SNS: Simple Notification Service
+for sms and email
+
+cloud watch : monitoring tool of Amazon
+IAM : identifity Access Management
+user creating
+add Permissions
+
+EKS : kubernates cluster
+Lamda : server less services
+Code commit=git hub
+Code build = maven
+Code deploy=jenkins
+Code star= Code, commit, build, deploy simmilar lamda
+ECS: Elastic Container service (docker)
+ECR: Elastic container Registary(docker hub)
+EKS : Elastic kubernaties service (kubernaties)
+cloudformation : s(terraform)
+Amazon Polly : translate languages
+
+
+
+
+
+
+
+
+
+
+
